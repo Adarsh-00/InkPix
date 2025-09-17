@@ -1,0 +1,37 @@
+<!-- InkPix Logo -->
+<svg width="180" height="36" viewBox="0 0 620 124" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="InkPix">
+  <!-- Icon -->
+  <defs>
+    <linearGradient id="inkpix-g" x1="0" y1="0" x2="124" y2="124" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset dy="2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 .18 0"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+
+  <!-- rounded square with gradient -->
+  <g filter="url(#soft)">
+    <rect x="0" y="0" width="124" height="124" rx="28" fill="url(#inkpix-g)"/>
+    <!-- ink drop / lens -->
+    <circle cx="62" cy="55" r="22" fill="white" opacity=".92"/>
+    <circle cx="62" cy="55" r="10" fill="#0EA5E9"/>
+    <!-- sparkle -->
+    <circle cx="86" cy="33" r="6" fill="white" opacity=".95"/>
+  </g>
+
+  <!-- Wordmark (system font; inherits color) -->
+  <g fill="currentColor" transform="translate(150,20)">
+    <!-- “InkPix” with gentle rounded look via letter-spacing -->
+    <text x="0" y="90" font-family="Inter, Poppins, Segoe UI, system-ui, -apple-system, Arial" font-size="120" font-weight="800" letter-spacing="5">
+      InkPix
+    </text>
+
+    <!-- subtle underline accent (optional) -->
+    
+  </g>
+</svg>
