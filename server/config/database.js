@@ -4,7 +4,7 @@ const connectDB = async () => {
   try {
     // mongoose.connection.on('connected', ()=>console.log('connected DB'));
     await mongoose.connect(`${process.env.MONGODB_URI}/InkPix`);
-    console.log("MongoDB Connected...");
+    console.log("MongoDB Connected.");
 
   } catch (err) {
     console.error("MongoDB connection error:", err);
@@ -13,4 +13,5 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+
 
