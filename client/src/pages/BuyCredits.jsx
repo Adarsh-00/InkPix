@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import { assets, plans } from '../assets/assets';
 import { AppContext } from '../context/AppContext';
 import {motion} from 'framer-motion';
+import { toast } from 'react-toastify';
 
 const BuyCredits = () => {
   const { user } = useContext(AppContext);
+
+  const purchaseCredit = () => {
+    toast.info("Payment Gateway is not added yet");
+  }
 
   return (
     <motion.div className='min-h-[80vh] text-center pt-14 mb-10'
@@ -28,8 +33,8 @@ const BuyCredits = () => {
             <p className='text-sm'>{item.desc}</p>
             <p className='mt-6'>
               <span className='text-3xl font-medium'>₹{item.price} </span>/ {item.credits} credits
-              <button className='w-full bg-gray-800 text-white mt-8 text-sm rounded-md py-2.5 min-w-52'>
-                {user ? 'Purchase' : 'Get Started'}
+              <button onClick={purchaseCredit} className='w-full bg-gray-800 text-white mt-8 text-sm rounded-md py-2.5 min-w-52'>
+                Purchase
               </button>
             </p>
           </div>

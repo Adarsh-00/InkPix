@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { assets } from '../assets/assets';
 import {motion} from 'framer-motion';
+import { AppContext } from '../context/AppContext';
 
 const Result = () => {
 
@@ -9,11 +10,20 @@ const Result = () => {
   const [loader, setloader] = useState(false);
   const [input, setInput] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(input);
+  const {generateImage} = useContext(AppContext);
 
-    //waiting for the data from server/backend.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setloader(true);
+
+    if(input) {
+      const image = await generateImage(input);
+      if(image) {
+        setIsImageLoaded(true);
+        setImage(image);
+      }
+    }
+    setloader(false);
   }
 
   return (
@@ -53,8 +63,8 @@ const Result = () => {
           </p>
 
           <a
-            href=""
-            download
+            href={image}
+            download="generated_image.png"
             className="bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-3 rounded-full text-white cursor-pointer hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 transition flex items-center justify-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
